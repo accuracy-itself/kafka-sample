@@ -1,0 +1,4 @@
+com\expert\model\Message.class
+com\expert\Application.class
+hello\HelloController.class
+com\expert\consumer\ConsumerService.class

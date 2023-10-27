@@ -1,0 +1,25 @@
+cd L:\programs\kafka_2.13-3.6.0
+
+start zookeper:
+(bin/zookeeper-server-start.sh config/zookeeper.properties)
+bin/windows/zookeeper-server-start.bat config/zookeeper.properties
+
+start kafka:
+(bin/kafka-server-start.sh config/server.properties)
+bin/windows/kafka-server-start.bat config/server.properties
+
+start spring boot apps:
+java -jar target/kafka-tutorial-consumer-0.0.1-SNAPSHOT.jar
+java -jar .\target\kafka-tutorial-producer-0.0.1-SNAPSHOT.jar
+
+list kafka topics:
+./bin/windows/kafka-topics.bat --bootstrap-server=localhost:9092 --list
+
+show info about topic:
+./bin/windows/kafka-topics.bat  --describe --bootstrap-server localhost:9092 --topic [topic-name]
+
+show topic messages:
+bin/windows/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic [topic-name] --from-beginning
+
+
+
